@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8ff">
+  <meta name="description" content="Interactive JHS measurement activities for perimeter, area, unit conversions, and practice.">
+  <title>Measurement Lab — JHS Math</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">↗</span><span>JHS <strong>Math Lab</strong></span></a>
+    <nav aria-label="Main navigation"><a href="#perimeter">Perimeter</a><a href="#area">Area</a><a href="#conversions">Conversions</a><a href="#practice">Practice</a></nav>
+    <span class="level-tag">JHS · Measurement</span>
+  </header>
+  <main id="home">
+    <section class="hero">
+      <div><p class="eyebrow">MEASURE, EXPLORE, UNDERSTAND</p><h1>Math you can<br><span>measure.</span></h1><p class="hero-copy">Explore the distance around shapes, find the space inside them, and convert between units. Change the numbers and see how measurement works.</p><a class="button primary" href="#perimeter">Start exploring <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-art" aria-hidden="true"><div class="ruler"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="measure-shape"><div class="measure-label top">8 cm</div><div class="measure-label side">5 cm</div></div><div class="area-note">Area = length × width</div></div>
+    </section>
+
+    <section class="section" id="perimeter">
+      <div class="section-heading"><div><p class="eyebrow">01 · PERIMETER</p><h2>Walk around the shape.</h2></div><p>Perimeter is the total distance around the outside of a shape. Choose a shape and change its side lengths.</p></div>
+      <div class="tool-card perimeter-card">
+        <div class="shape-display"><div id="perimeter-visual" class="shape-visual rectangle-visual" aria-hidden="true"><span id="visual-width">8 cm</span><span id="visual-height">5 cm</span></div><p class="visual-caption">DISTANCE AROUND</p></div>
+        <div class="tool-controls"><label class="field-label" for="perimeter-shape">Choose a shape</label><select id="perimeter-shape"><option value="rectangle">Rectangle</option><option value="square">Square</option><option value="triangle">Triangle</option></select>
+          <div id="perimeter-inputs" class="input-grid"></div>
+          <div class="result-box"><span>PERIMETER</span><strong id="perimeter-result" aria-live="polite">26 cm</strong><small id="perimeter-formula">P = 2 × (length + width)</small></div>
+          <p class="tip"><strong>Remember:</strong> Perimeter measures the boundary. Add every side around the shape.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="area">
+      <div class="section-heading"><div><p class="eyebrow">02 · AREA</p><h2>How much space is inside?</h2></div><p>Area measures the surface covered by a flat shape. Adjust the dimensions to see the area and formula update.</p></div>
+      <div class="tool-card area-card">
+        <div class="area-display"><div id="area-visual" class="area-visual rectangle-visual" aria-hidden="true"><span id="area-width-label">8 cm</span><span id="area-height-label">5 cm</span><div class="grid-overlay"></div></div><p class="visual-caption">SPACE INSIDE</p></div>
+        <div class="tool-controls"><label class="field-label" for="area-shape">Choose a shape</label><select id="area-shape"><option value="rectangle">Rectangle</option><option value="square">Square</option><option value="triangle">Triangle</option></select>
+          <div id="area-inputs" class="input-grid"></div>
+          <div class="result-box mint"><span>AREA</span><strong id="area-result" aria-live="polite">40 cm²</strong><small id="area-formula">A = length × width</small></div>
+          <p class="tip"><strong>Remember:</strong> Area is measured in square units, such as cm² or m².</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="conversions">
+      <div class="section-heading"><div><p class="eyebrow">03 · UNIT CONVERTER</p><h2>Same measure, new unit.</h2></div><p>Choose length or area, enter a measurement, and convert it into another unit.</p></div>
+      <div class="converter-card">
+        <div class="converter-top"><label class="field-label" for="conversion-type">What are you converting?</label><select id="conversion-type"><option value="length">Length</option><option value="area">Area</option></select></div>
+        <div class="conversion-flow">
+          <div class="conversion-field"><label class="field-label" for="conversion-value">I have</label><div class="value-unit"><input id="conversion-value" type="number" min="0" step="any" value="250" inputmode="decimal"><select id="from-unit" aria-label="Starting unit"></select></div></div>
+          <span class="convert-arrow" aria-hidden="true">→</span>
+          <div class="conversion-field"><label class="field-label" for="to-unit">Convert to</label><select id="to-unit" aria-label="Target unit"></select></div>
+        </div>
+        <div class="conversion-result"><span id="conversion-equation">250 cm = 2.5 m</span><strong id="conversion-result" aria-live="polite">2.5 m</strong></div>
+        <p class="conversion-hint" id="conversion-hint">There are 100 centimetres in 1 metre.</p>
+      </div>
+      <div class="unit-facts"><div><strong>1 km</strong><span>= 1,000 m</span></div><div><strong>1 m</strong><span>= 100 cm</span></div><div><strong>1 cm</strong><span>= 10 mm</span></div><div><strong>1 m²</strong><span>= 10,000 cm²</span></div></div>
+    </section>
+
+    <section class="section practice-section" id="practice">
+      <div class="section-heading"><div><p class="eyebrow">04 · YOUR TURN</p><h2>Measurement practice.</h2></div><p>Try five questions. Choose an answer to get instant feedback and an explanation.</p></div>
+      <div class="quiz-card">
+        <div class="quiz-progress"><span id="quiz-count">QUESTION 1 OF 5</span><div class="progress-track"><span id="progress-fill"></span></div></div>
+        <h3 id="question">A rectangle is 7 cm long and 3 cm wide. What is its perimeter?</h3>
+        <div id="answers" class="answers" role="group" aria-label="Answer choices"></div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+        <div class="quiz-footer"><span id="score">Score: 0</span><button class="button primary" id="quiz-action" type="button" disabled>Check answer</button></div>
+      </div>
+    </section>
+    <section class="finish-banner"><div><p class="eyebrow">KEEP PRACTISING</p><h2>Measure the world<br>around you.</h2><p>Estimate, measure, calculate—and see if your answer makes sense.</p></div><a class="button light" href="#perimeter">Explore again <span aria-hidden="true">↑</span></a></section>
+  </main>
+  <footer><span>JHS Math Lab · Measurement</span><span>Made for curious learners ✦</span></footer>
+</body>
+</html>
